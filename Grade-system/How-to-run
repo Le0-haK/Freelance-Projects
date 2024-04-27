@@ -1,0 +1,15 @@
+  Step to run the StudentGrades
+
+-> Method 1 (Enter data manually here)
+
+java GradeChecker
+
+-> Method 2 (Read data from file) 
+
+java GradeChecker grades.txt
+
+
+  Step to run the StudentGrades & Gradebook
+
+java Main
+	
