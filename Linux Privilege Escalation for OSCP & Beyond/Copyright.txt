@@ -1,0 +1,22 @@
+Copyright © Hacklido & Author(s). All rights reserved.
+No part of this book may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means, electronic, mechanical,
+photocopying, recording, or otherwise, without prior written
+permission of the publisher.
+Any information presented in this book is solely intended to provide
+information, guidance, and advice to its readers. The author of this
+book makes no representations or warranties of any kind, either
+expressed or implied, regarding the accuracy, completeness, or
+usefulness of the information contained within. The author shall not
+be held liable for any losses or damages caused directly or indirectly
+by the information contained in this book.
+The author(s) does not advocate or condone the illegal or unethical
+actions described in this book. All information contained in this book
+should be used for educational and research purposes only. The user
+shall be solely responsible for any and all activities undertaken by
+them. By purchasing this book, the reader assumes all risks and
+liabilities and agrees to use the information contained within with full
+responsibility.
+
+Author:
+Ali Akber
