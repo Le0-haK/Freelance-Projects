@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form label {
+            margin-bottom: 10px;
+            color: #495057;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            width: calc(100% - 20px); /* Adjusted width to accommodate border */
+            box-sizing: border-box;
+        }
+        form button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back to Dashboard button -->
+        <a href="{% url 'user_dashboard' %}" class="back-button">Back to Dashboard</a><br><br><br><br>
+        <h2>Book Ticket for Flight {{ flight.flight_number }}</h2>
+        <p>Available Seats: {{ available_seats }}</p>
+        
+        {% if available_seats > 0 %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Book Ticket</button>
+        </form>
+        {% else %}
+        <p class="message">Sorry, all seats on this flight are booked.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

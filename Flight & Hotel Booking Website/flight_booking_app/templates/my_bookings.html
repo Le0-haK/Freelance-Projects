@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .flight {
+            background-color: #ffc107; /* Background color for flight bookings */
+        }
+
+        .hotel {
+            background-color: #17a2b8; /* Background color for hotel bookings */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back to Dashboard button -->
+        <a href="{% url 'user_dashboard' %}" class="back-button">Back to Dashboard</a><br><br><br><br>
+        <h2>My Bookings</h2><br><br>
+        <h3>Flight Bookings</h3>
+        <ul>
+            {% for booking in flight_bookings %}
+                <li>{{ booking.flight.flight_number }} - Seat: {{ booking.seat_number }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Hotel Bookings</h3>
+        <ul>
+            {% for booking in hotel_bookings %}
+                <li>{{ booking.hotel.name }} - Check-in: {{ booking.check_in_date }} - Check-out: {{ booking.check_out_date }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

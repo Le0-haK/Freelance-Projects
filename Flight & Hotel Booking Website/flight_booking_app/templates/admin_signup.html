@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sign Up</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a85b6, #bac8e0); /* Linear gradient background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: left; /* Align heading to the left */
+            margin-left: 20px; /* Provide left margin for heading */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align form items to the left */
+            animation: fadeIn 2s ease-in-out;
+            margin-left: 20px; /* Provide left margin for the form */
+        }
+        form label {
+            margin-bottom: 10px;
+            color: #495057;
+            font-weight: bold;
+            text-align: left; /* Align label text to the left */
+            width: 100%; /* Ensure labels take full width */
+        }
+        form input[type="text"],
+        form input[type="password"] {
+            width: calc(100% - 24px); /* Full width for input fields minus padding and border */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, width 0.3s ease; /* Transition for border color and width */
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+            font-size: 14px; /* Font size of the input text */
+            text-align: left; /* Align text to the left within input field */
+        }
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        form button[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: calc(100% - 24px); /* Full width for button minus padding and border */
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+        }
+        form button[type="submit"]:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

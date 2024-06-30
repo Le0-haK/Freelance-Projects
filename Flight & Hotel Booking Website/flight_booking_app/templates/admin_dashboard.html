@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a85b6, #bac8e0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #343a40;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1.5s ease-in-out;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+        }
+        h2, h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+        ul li {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 3.5s ease-in-out;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 4s ease-in-out;
+        }
+        .actions a {
+            display: inline-block;
+            margin: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .actions a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% else %}
+            <h2>Welcome, Admin!</h2>
+            <h3>All Bookings:</h3>
+            <ul>
+                {% for booking in bookings %}
+                    <li>{{ booking }}</li>
+                {% empty %}
+                    <li>No bookings found.</li>
+                {% endfor %}
+            </ul>
+            <h3>All Flights:</h3>
+            <ul>
+                {% for flight in flights %}
+                    <li>
+                        Flight Number: {{ flight.flight_number }} - Departure Date: {{ flight.departure_date }} {{ flight.departure_time }}
+                        <a href="{% url 'remove_flight' flight.id %}">Remove Flight</a>
+                    </li>
+                {% empty %}
+                    <li>No flights found.</li>
+                {% endfor %}
+            </ul>
+            <h3>All Hotels:</h3>
+            <ul>
+                {% for hotel in hotels %}
+                    <li>
+                        Hotel Name: {{ hotel.name }} - Address: {{ hotel.address }}
+                        <a href="{% url 'remove_hotel' hotel.id %}">Remove Hotel</a>
+                    </li>
+                {% empty %}
+                    <li>No hotels found.</li>
+                {% endfor %}
+            </ul>
+            <div class="actions">
+                <a href="{% url 'add_flight' %}">Add Flight</a>   
+                <a href="{% url 'add_hotels' %}">Add Hotel</a>             
+                <a href="{% url 'user_details' %}">User Details</a>
+                <a href="{% url 'user_logout' %}">Logout</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

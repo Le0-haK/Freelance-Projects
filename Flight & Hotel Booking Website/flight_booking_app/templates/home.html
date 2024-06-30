@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #58636e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        a {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 10px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #28a745;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #218838;
+        }
+        /* Additional styling */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            text-align: center;
+            background-color: #dcd5d5;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Flight & Hotel Booking Service</h2>
+        <a href="{% url 'user_signup' %}">User Sign Up</a>
+        <a href="{% url 'user_login' %}">User Login</a>
+        <a href="{% url 'admin_signup' %}">Admin Sign Up</a>
+        <a href="{% url 'admin_login' %}">Admin Login</a>
+    </div>
+</body>
+</html>
