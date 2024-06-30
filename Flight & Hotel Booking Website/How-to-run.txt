@@ -1,0 +1,5 @@
+1. Install Python3 Interpreter
+2. Run this command -> pip install django
+3. Clone this project and go into the directory where "manage.py" is located
+4. Run this command -> python.exe manage.py migrate OR if you're in Linux then this command -> python3 manage.py migrate
+4. Run this command -> python.exe manage.py runserver OR if you're in Linux then this command -> python3 manage.py runserver
